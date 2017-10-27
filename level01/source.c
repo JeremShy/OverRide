@@ -1,0 +1,35 @@
+char a_user_name[256];
+
+int verify_user_pass(char *buff) {
+	return (memcmp(buffer, "admin", 5));
+}
+
+int verify_user_name() {
+	return (memcmp(buffer, "dat_wil", 7));
+}
+
+int main() {
+	char buff[64];
+	int i;
+
+	memset(buff, '\0', 64);
+	i = 0;
+	puts("********* ADMIN LOGIN PROMPT *********");
+
+	printf("Enter Username: ");
+	fgets(a_user_name, 256, stdin);
+	i = verify_user_name();
+	if (i != 0) {
+		puts("nope, incorrect username...\n");
+		return (1);
+	}
+
+	puts("Enter Password: ");
+	fgets(buff, 100, stdin);
+	i = verify_user_pass(buff);
+	if (i == 0 || i == 0) {
+		puts( "nope, incorrect password...\n")
+	}
+
+	return (0);
+}
