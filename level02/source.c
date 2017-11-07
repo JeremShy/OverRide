@@ -50,7 +50,7 @@ nb param reg 		= 5
 Password			= 0x7fffffffe530;
 premier para stack	= 0x7fffffffe4b0
 
-Diff				= 128 
+Diff				= 128
 
 ce qui donne : 128 / 8 + 5 = 21 params et donc le debut du buffeur est au 22eme parametre
 

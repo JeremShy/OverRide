@@ -40,29 +40,30 @@ ebp
 0x080486a8 <+72>: mov    eax,0x0 ; eax = 0
 0x080486ad <+77>: mov    ecx,DWORD PTR [ebp-0x2c]; ecx = tmp
 0x080486b0 <+80>: mov    edi,edx ; edi = str
-0x080486b2 <+82>: repnz scas al,BYTE PTR es:[edi] 
+0x080486b2 <+82>: repnz scas al,BYTE PTR es:[edi]
 0x080486b4 <+84>: mov    eax,ecx
 0x080486b6 <+86>: not    eax
 0x080486b8 <+88>: sub    eax,0x1 ; eax = strlen(str)
+
 0x080486bb <+91>: mov    DWORD PTR [ebp-0x24],eax ; len = eax
 0x080486be <+94>: mov    DWORD PTR [ebp-0x28],0x0 ; i = 0
-0x080486c5 <+101>:   jmp    0x80486e5 <decrypt+133> 
+0x080486c5 <+101>:   jmp    0x80486e5 <decrypt+133>
 While (i < len)
 
    0x080486c7 <+103>:   lea    eax,[ebp-0x1d] ; eax = str
    0x080486ca <+106>:   add    eax,DWORD PTR [ebp-0x28] ; eax = str + i
    0x080486cd <+109>:   movzx  eax,BYTE PTR [eax] ; eax = str[i]
    0x080486d0 <+112>:   mov    edx,eax ; edx = eax
-   0x080486d2 <+114>:   mov    eax,DWORD PTR [ebp+0x8] ; eax = {0 ... 21}
+   0x080486d2 <+114>:   mov    eax,DWORD PTR [ebp+0x8] ; eax = n1
    0x080486d5 <+117>:   xor    eax,edx
-   0x080486d7 <+119>:   mov    edx,eax ; edx = xor({0 ... 21} , str[i])
+   0x080486d7 <+119>:   mov    edx,eax ; edx = xor(n1 , str[i])
    0x080486d9 <+121>:   lea    eax,[ebp-0x1d] ; eax = str
    0x080486dc <+124>:   add    eax,DWORD PTR [ebp-0x28] ; eax = str + i
-   0x080486df <+127>:   mov    BYTE PTR [eax],dl ; str[i] += xor({0 ... 21} , str[i])
+   0x080486df <+127>:   mov    BYTE PTR [eax],dl ; str[i] = xor(n1 , str[i])
    0x080486e1 <+129>:   add    DWORD PTR [ebp-0x28],0x1 ; i++
 
 0x080486e5 <+133>:   mov    eax,DWORD PTR [ebp-0x28] ; eax = i
-0x080486e8 <+136>:   cmp    eax,DWORD PTR [ebp-0x24] ;
+0x080486e8 <+136>:   cmp    eax,DWORD PTR [ebp-0x24] ; cmp avec len
 0x080486eb <+139>:   jb     0x80486c7 <decrypt+103>
 
 0x080486ed <+141>:   lea    eax,[ebp-0x1d] ; eax = str
@@ -86,6 +87,7 @@ While (i < len)
 0x08048721 <+193>:   jmp    0x804872f <decrypt+207>
 0x08048723 <+195>:   mov    DWORD PTR [esp],0x80489dc
 0x0804872a <+202>:   call   0x80484d0 <puts@plt>
+
 0x0804872f <+207>:   mov    esi,DWORD PTR [ebp-0xc]
 0x08048732 <+210>:   xor    esi,DWORD PTR gs:0x14
 0x08048739 <+217>:   je     0x8048740 <decrypt+224>
@@ -109,18 +111,20 @@ int n1         : 0x0c - 0x08
 0x08048755 <+14>: sub    ecx,eax
 0x08048757 <+16>: mov    eax,ecx ; eax = 0x1337d00d - i
 0x08048759 <+18>: mov    DWORD PTR [ebp-0xc],eax ; n1 = 0x1337d00d - i
-0x0804875c <+21>: cmp    DWORD PTR [ebp-0xc],0x15 
-0x08048760 <+25>: ja     0x804884a <test+259> 
+0x0804875c <+21>: cmp    DWORD PTR [ebp-0xc],0x15
+0x08048760 <+25>: ja     0x804884a <test+259>
 
 if (n1 <= 21)
    0x08048766 <+31>: mov    eax,DWORD PTR [ebp-0xc] ; eax = n1
-   0x08048769 <+34>: shl    eax,0x2 ; eax = eax << 2
+   0x08048769 <+34>: shl    eax,0x2 ; eax = eax * 4
    0x0804876c <+37>: add    eax,0x80489f0 ; eax += 0x80489f0 (test+259)
    0x08048771 <+42>: mov    eax,DWORD PTR [eax] ; eax = *eax
    0x08048773 <+44>: jmp    eax
+
    0x08048775 <+46>:    mov    eax,DWORD PTR [ebp-0xc]
    0x08048778 <+49>:    mov    DWORD PTR [esp],eax
    0x0804877b <+52>:    call   0x8048660 <decrypt>
+
    0x08048780 <+57>:    jmp    0x8048858 <test+273>
    0x08048785 <+62>:    mov    eax,DWORD PTR [ebp-0xc]
    0x08048788 <+65>:    mov    DWORD PTR [esp],eax
