@@ -1,3 +1,7 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
 int main(int argc, char **argv) {
 	char **av;
 	int ac;
@@ -16,19 +20,19 @@ int main(int argc, char **argv) {
 	pass = fopen("/home/users/level03/.pass", "r");
 
 	if (pass == NULL) {
-		...
+		// ...
 		exit(1);
 	}
 
 	nb2 = fread(password, 1, 41, pass);
 	if (nb2 != 41)
 	{
-		...
+		// ...
 		exit(1);
 	}
 	password[strcspn(password, "\n")] = '\0';
 
-	printf(...);
+	printf("...");
 
 	printf("--[ Username: ");
 	fgets(username, 100, stdin);
@@ -42,10 +46,10 @@ int main(int argc, char **argv) {
 		system("/bin/sh");
 	}
 	printf(username);
-	puts(" does not have access!")
+	puts(" does not have access!");
 	exit(1);
 }
-
+/*
 nb param reg 		= 5
 Password			= 0x7fffffffe530;
 premier para stack	= 0x7fffffffe4b0
@@ -87,3 +91,5 @@ FILE*   pass				: 0x8   - 0x0
 rbp
 
 RDI, RSI, RDX, RCX, R8, R9
+
+*/

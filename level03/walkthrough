@@ -7,7 +7,7 @@ On remarque que 'Q' ^ 'C' = 0x12.
 
 La clé de décryptage est donc 0x12.
 
-On doit donc rentrer 0x1337d00d - 0x12 = 0x1337CFFB.
+On doit donc rentrer 0x1337d00d - 0x12 = 0x1337CFFB. (322424827 en decimal)
 
 On récupère ainsi un shell et on n'a plus qu'à :
 

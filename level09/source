@@ -1,4 +1,7 @@
-	typedef struct message {
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+typedef struct message {
 	char	msg[140];
 	char	username[40];
 	int		i;
@@ -27,20 +30,20 @@ void set_username(message *mess)
 	memset(buffer, 0, 0x80);
 	puts(">: Enter your username");
 	printf(">>: ");
-	fgets(buffer, 0x80m stdin);
+	fgets(buffer, 0x80, stdin);
 	i = 0;
-	while(i <= 0x28 && buffer[i])
+	while(i <= 40 && buffer[i])
 	{
 		bufarg->username[i] = buffer[i];
 		i++;
 	}
-	printf(">: Welcome, %s", bufarg.username);
+	printf(">: Welcome, %s", bufarg->username);
 }
 
-handle_msg() {
+void handle_msg() {
 	message buffer;
 
-	memset(buff.username, 0, 40);
+	memset(buffer.username, 0, 40);
 	buffer.i = 0x8c;
 
 	set_username(&buffer);
@@ -48,17 +51,17 @@ handle_msg() {
 	puts(">: Msg sent !");
 }
 
-secret_backdoor()
+void secret_backdoor()
 {
 	char buffer[0x80];
 
-	fgets(stdin, buffer, 0x80);
+	fgets(buffer, 0x80, stdin);
 	system(buffer);
 }
 
-void main()
+int main()
 {
-	puts('-' <repeats 44 times>, "\n|   ~Welcome to l33t-m$n ~    v1337        |\n", '-' <repeats 44 times>);
+	puts("---------------------\n|   ~Welcome to l33t-m$n ~    v1337        |\n------------------\n");
 	handle_msg();
 }
 

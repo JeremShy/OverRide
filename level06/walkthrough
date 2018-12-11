@@ -9,4 +9,6 @@ x/xw $ebp-0x10
 ) puis on regarde quelle mot de passe etait attendu avec le login rentrer. (par exemple : 
 0123456 - 6232626)
 
+
+cat <(python -c "print '0123456\n' + '6232626\n'") - | ./level06
 GbcPDRgsFK77LNnnuh7QyFYA2942Gp8yKj9KrWD8

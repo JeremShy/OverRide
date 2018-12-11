@@ -1,3 +1,8 @@
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <time.h>
+
 void decrypt(int n1) {
 	//canary
 
@@ -41,6 +46,6 @@ int main() {
 	puts("***********************************");
 	printf("Password:");
 
-	scanf("%d", &i)
+	scanf("%d", &i);
 	test (i, 0x1337d00d);
 }

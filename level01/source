@@ -1,11 +1,15 @@
+#include <string.h>
+#include <stdio.h>
+
+
 char a_user_name[256];
 
 int verify_user_pass(char *buff) {
-	return (memcmp(buffer, "admin", 5));
+	return (memcmp(buff, "admin", 5));
 }
 
-int verify_user_name() {
-	return (memcmp(buffer, "dat_wil", 7));
+int verify_user_name(char *buff) {
+	return (memcmp(buff, "dat_wil", 7));
 }
 
 int main() {
@@ -18,7 +22,7 @@ int main() {
 
 	printf("Enter Username: ");
 	fgets(a_user_name, 256, stdin);
-	i = verify_user_name();
+	i = verify_user_name(buff);
 	if (i != 0) {
 		puts("nope, incorrect username...\n");
 		return (1);
@@ -28,7 +32,7 @@ int main() {
 	fgets(buff, 100, stdin);
 	i = verify_user_pass(buff);
 	if (i == 0 || i == 0) {
-		puts( "nope, incorrect password...\n")
+		puts( "nope, incorrect password...\n");
 	}
 
 	return (0);
